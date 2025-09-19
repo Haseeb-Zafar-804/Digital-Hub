@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital HUB | Exclusive Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #e7c554;
+            --accent: #a67c52;
+            --light: #f8f5f2;
+            --dark: #0d0d1a;
+            --success: #2e8b57;
+            --text: #333333;
+            --gold-light: #f5e6c8;
+            --gold-dark: #cfa12d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            background: linear-gradient(#f8f8f8 , #d4d4d4 #c4c4c4); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--gold-light);
+            position: relative;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .header h1 {
+            font-family: 'Jost', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-container {
+            padding: 50px;
+            background: white;
+            position: relative;
+        }
+        
+        .form-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 30px;
+            right: 30px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gold-light);
+        }
+        
+        .section-header i {
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            color: var(--dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+            border: 2px solid white;
+        }
+        
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-row {
+            display: flex;
+            margin-bottom: 25px;
+            gap: 30px;
+        }
+        
+        .form-group {
+            flex: 1;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        
+        .required::after {
+            content: "*";
+            color: var(--secondary);
+            margin-left: 4px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: var(--light);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            background-color: white;
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 1em;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input {
+            width: auto;
+            margin-right: 10px;
+            accent-color: var(--secondary);
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: rgba(248, 245, 242, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--secondary);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-3px);
+        }
+        
+        .file-upload i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .file-upload p {
+            color: #666;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            color: var(--dark);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 38px;
+            width: 50%;
+            cursor: pointer;
+            transition: all 0.5s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, var(--gold-dark), var(--secondary));
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn i {
+            font-size: 1.3rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary);
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .footer a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--secondary);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            color: var(--dark);
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .guarantee {
+            display: flex;
+            align-items: center;
+            background: rgba(46, 139, 87, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid var(--success);
+        }
+        
+        .guarantee i {
+            color: var(--success);
+            font-size: 2rem;
+            margin-right: 20px;
+        }
+        
+        .guarantee-text h3 {
+            color: var(--success);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .guarantee-text p {
+            color: var(--text);
+            opacity: 0.9;
+        }
+        
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.05;
+            font-size: 10rem;
+            color: var(--secondary);
+            z-index: 0;
+            font-family: 'Cinzel', serif;
+            pointer-events: none;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .modal p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .modal-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
+            color: var(--dark);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* WhatsApp button styles */
+        .whatsapp-btn {
+            background: var(--gold-dark);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 38px;
+            width: 50%;
+            cursor: pointer;
+            transition: all 0.5s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+        }
+    
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .container {
+                margin: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 30px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn, .whatsapp-btn {
+                width: 100%;
+                padding: 15px 30px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+        }
+
+        button{
+            font-family: "Jost", sans-serif;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admission Form</h1>
+            <p>Our exclusive application process ensures personalized attention from our admissions committee. Submit your materials to join the ranks of our distinguished alumni network.</p>
+            <div class="price-tag">
+                <i class="fas fa-graduation-cap"></i> Digital HUB
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <form id="admissionForm">
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-tie"></i>
+                        <h2>Personal Information</h2>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="required">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="required">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your father name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob" class="required">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="required">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0345XXXXXX">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-address-card"></i>
+                        <h2>Contact Information</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="street" class="required">Street Address</label>
+                        <input type="text" id="street" name="street" required placeholder="123 Main Street">
+                    </div>
+                    
+                </div>
+                
+                <div class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h2>Academic Background</h2>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="education" class="required">Highest Education Level</label>
+                            <select id="education" name="education" required>
+                                <option value="">Select Education Level</option>
+                                <option value="highschool">High School Diploma</option>
+                                <option value="associate">Associate Degree</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="phd">Doctorate (PhD)</option>
+                                <option value="professional">Professional Degree</option>
+                            </select>
+                        </div>
+                      
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution" class="required">Previous Institution</label>
+                        <input type="text" id="institution" name="institution" required placeholder="University of...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="program" class="required">Program of Interest</label>
+                        <select id="program" name="program" required>
+                            <option value="">Select Program</option>
+                            <option value="business">CIT</option>
+                            <option value="law">Graphic Designing</option>
+                            <option value="medicine">Content Writing</option>
+                            <option value="engineering">Web Development</option>
+                            <option value="finance">Video Editing</option>
+                            <option value="finance">Adobe Photoshop</option>
+                            <option value="finance">Artificial Intelligence(AI)</option>
+                            <option value="public-policy">Adobe Photoshop</option>
+                        </select>
+                    </div>
+
+                
+                    <div class="form-group" style="margin-top: 30px;">
+                        <div class="radio-option">
+                            <input type="checkbox" id="agree" name="agree" required>
+                            <label for="agree"><p>
+                                I understand that by submitting this form, I have carefully reviewed my information before sending. </p>
+                              
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-container">
+                    <button type="button" class="whatsapp-btn" id="whatsappBtn">
+<p>Submit</p>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p><i class="fas fa-university"></i> Digital HUB Office | <i class="fas fa-phone"></i> +92 3412825465| <i class="fas fa-envelope" style="text-decoration: none;"></i> admissions@digitalhub.org</p>
+            <p style="margin-top: 10px;">© 2025 Digital HUB Group. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+        </div>
+    </div>
+    
+    <!-- Modal for male ineligibility -->
+    <div class="modal" id="genderModal">
+        <div class="modal-content">
+            <h2>Eligibility Notice</h2>
+            <p>We're sorry, but this program is currently only available to female applicants. Males are not eligible for admission at this time.</p>
+            <button class="modal-btn" id="closeModal">I Understand</button>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced file upload handling
+        document.querySelectorAll('.file-upload').forEach(item => {
+            const input = item.querySelector('input[type="file"]');
+            
+            item.addEventListener('click', () => {
+                input.click();
+            });
+            
+            input.addEventListener('change', () => {
+                if (input.files.length > 0) {
+                    if (input.files.length > 1) {
+                        item.innerHTML = `
+                            <i class="fas fa-check-circle" style="color: var(--success)"></i>
+                            <p>${input.files.length} files selected</p>
+                        `;
+                    } else {
+                        item.innerHTML = `
+                            <i class="fas fa-check-circle" style="color: var(--success)"></i>
+                            <p>${input.files[0].name}</p>
+                            <small>${(input.files[0].size / (1024 * 1024)).toFixed(2)} MB</small>
+                        `;
+                    }
+                    item.style.borderColor = "var(--success)";
+                    item.style.backgroundColor = "rgba(46, 139, 87, 0.05)";
+                }
+            });
+        });
+        
+        // Gender validation
+        const genderSelect = document.getElementById('gender');
+        const genderModal = document.getElementById('genderModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        genderSelect.addEventListener('change', function() {
+            if (this.value === 'male') {
+                genderModal.style.display = 'flex';
+                // Reset the selection
+                this.value = '';
+            }
+        });
+        
+        closeModal.addEventListener('click', function() {
+            genderModal.style.display = 'none';
+        });
+        
+        // Form submission handling with confirmation
+        document.getElementById('admissionForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Check if gender is male
+            if (genderSelect.value === 'male') {
+                genderModal.style.display = 'flex';
+                return;
+            }
+            
+            // Show confirmation modal
+            const confirmed = confirm('You are about to submit your application. Continue?');
+            
+            if (confirmed) {
+                // In a real app, you would send the data to a server here
+                alert('Thank you for your Digital HUB application! Our admissions team will review your materials within 3-5 business days.');
+                // form.submit(); // Uncomment in real implementation
+            }
+        });
+        
+        // WhatsApp submission
+        document.getElementById('whatsappBtn').addEventListener('click', function() {
+            // Check if gender is male
+            if (genderSelect.value === 'male') {
+                genderModal.style.display = 'flex';
+                return;
+            }
+            
+            // Validate form
+            const form = document.getElementById('admissionForm');
+            if (!form.checkValidity()) {
+                alert('Please fill out all required fields before submitting.');
+                return;
+            }
+            
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                dob: document.getElementById('dob').value,
+                gender: document.getElementById('gender').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                street: document.getElementById('street').value,
+                education: document.getElementById('education').value,
+                institution: document.getElementById('institution').value,
+                program: document.getElementById('program').value
+            };
+            
+            // Create WhatsApp message
+            const message = `New Digital HUB Application:%0A%0A
+            *Name:* ${formData.firstName} ${formData.lastName}%0A
+            *Date of Birth:* ${formData.dob}%0A
+            *Gender:* ${formData.gender}%0A
+            *Email:* ${formData.email}%0A
+            *Phone:* ${formData.phone}%0A
+            *Address:* ${formData.street}%0A
+            *Education:* ${formData.education}%0A
+            *Previous Institution:* ${formData.institution}%0A
+            *Program of Interest:* ${formData.program}`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/?text=${message}`, '_blank');
+        });
+        
+        // Add subtle animation to form sections
+        document.querySelectorAll('.form-section').forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            
+            setTimeout(() => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
