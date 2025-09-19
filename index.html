@@ -43,7 +43,7 @@
         
         .container {
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 30px auto;
             background: white;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
@@ -426,7 +426,6 @@
             gap: 15px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
             margin-top: 20px;
         }
@@ -447,15 +446,14 @@
             }
             
             .container {
-                margin: 20px;
+                margin: 5px;
             }
-            
             .header h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .form-container {
-                padding: 30px;
+                padding: 10px;
             }
             
             .section-header h2 {
@@ -542,7 +540,7 @@
                 <div class="form-section">
                     <div class="section-header">
                         <i class="fas fa-address-card"></i>
-                        <h2>Contact Information</h2>
+                        <h2>Address</h2>
                     </div>
                     
                     <div class="form-group">
@@ -560,16 +558,8 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="education" class="required">Highest Education Level</label>
-                            <select id="education" name="education" required>
-                                <option value="">Select Education Level</option>
-                                <option value="highschool">High School Diploma</option>
-                                <option value="associate">Associate Degree</option>
-                                <option value="bachelor">Bachelor's Degree</option>
-                                <option value="master">Master's Degree</option>
-                                <option value="phd">Doctorate (PhD)</option>
-                                <option value="professional">Professional Degree</option>
-                            </select>
+                            <label for="education" class="required">Qualification</label>
+                                <input type="text" id="education" name="institution" required placeholder="I have complete...">
                         </div>
                       
                     </div>
@@ -578,22 +568,6 @@
                         <label for="institution" class="required">Previous Institution</label>
                         <input type="text" id="institution" name="institution" required placeholder="University of...">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="program" class="required">Program of Interest</label>
-                        <select id="program" name="program" required>
-                            <option value="">Select Program</option>
-                            <option value="business">CIT</option>
-                            <option value="law">Graphic Designing</option>
-                            <option value="medicine">Content Writing</option>
-                            <option value="engineering">Web Development</option>
-                            <option value="finance">Video Editing</option>
-                            <option value="finance">Adobe Photoshop</option>
-                            <option value="finance">Artificial Intelligence(AI)</option>
-                            <option value="public-policy">Adobe Photoshop</option>
-                        </select>
-                    </div>
-
                 
                     <div class="form-group" style="margin-top: 30px;">
                         <div class="radio-option">
@@ -628,35 +602,7 @@
         </div>
     </div>
     
-    <script>
-        // Enhanced file upload handling
-        document.querySelectorAll('.file-upload').forEach(item => {
-            const input = item.querySelector('input[type="file"]');
-            
-            item.addEventListener('click', () => {
-                input.click();
-            });
-            
-            input.addEventListener('change', () => {
-                if (input.files.length > 0) {
-                    if (input.files.length > 1) {
-                        item.innerHTML = `
-                            <i class="fas fa-check-circle" style="color: var(--success)"></i>
-                            <p>${input.files.length} files selected</p>
-                        `;
-                    } else {
-                        item.innerHTML = `
-                            <i class="fas fa-check-circle" style="color: var(--success)"></i>
-                            <p>${input.files[0].name}</p>
-                            <small>${(input.files[0].size / (1024 * 1024)).toFixed(2)} MB</small>
-                        `;
-                    }
-                    item.style.borderColor = "var(--success)";
-                    item.style.backgroundColor = "rgba(46, 139, 87, 0.05)";
-                }
-            });
-        });
-        
+    <script>        
         // Gender validation
         const genderSelect = document.getElementById('gender');
         const genderModal = document.getElementById('genderModal');
@@ -723,21 +669,21 @@
                 program: document.getElementById('program').value
             };
             
-            // Create WhatsApp message
-            const message = `New Digital HUB Application:%0A%0A
-            *Name:* ${formData.firstName} ${formData.lastName}%0A
-            *Date of Birth:* ${formData.dob}%0A
-            *Gender:* ${formData.gender}%0A
-            *Email:* ${formData.email}%0A
-            *Phone:* ${formData.phone}%0A
-            *Address:* ${formData.street}%0A
-            *Education:* ${formData.education}%0A
-            *Previous Institution:* ${formData.institution}%0A
-            *Program of Interest:* ${formData.program}`;
-            
-            // Open WhatsApp with pre-filled message
-            window.open(`https://wa.me/?text=${message}`, '_blank');
-        });
+          // Create WhatsApp message
+const message = `New Digital HUB Application:%0A%0A
+*Name:* ${formData.firstName} ${formData.lastName}%0A
+*Date of Birth:* ${formData.dob}%0A
+*Gender:* ${formData.gender}%0A
+*Email:* ${formData.email}%0A
+*Phone:* ${formData.phone}%0A
+*Address:* ${formData.street}%0A
+*Education:* ${formData.education}%0A
+*Previous Institution:* ${formData.institution}%0A
+*Program of Interest:* ${formData.program}`;
+
+// ✅ Open WhatsApp with your number directly
+window.open(`https://wa.me/923412825465?text=${message}`, '_blank');
+});
         
         // Add subtle animation to form sections
         document.querySelectorAll('.form-section').forEach((section, index) => {
