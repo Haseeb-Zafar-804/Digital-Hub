@@ -17,16 +17,16 @@
     rel="stylesheet">
   <style>
     :root {
-      --primary: #1a1a2e;
-      --secondary: #e7c554;
-      --accent: #a67c52;
+      --primary: #18182b;
+      --secondary: #eec745;
+      --accent: #916840;
       --light: #f8f5f2;
       --dark: #0d0d1a;
-      --success: #2e8b57;
+      --success: #257e4b;
       --error: #dc3545;
       --text: #333333;
       --gold-light: #f5e6c8;
-      --gold-dark: #cfa12d;
+      --gold-dark: #d6a62e;
     }
 
     * {
@@ -40,19 +40,20 @@
       background-color: var(--light);
       color: var(--text);
       line-height: 1.6;
-      background: linear-gradient(#f8f8f8, #d4d4d4, #c4c4c4);
+      background: linear-gradient(135deg, #f8f8f8 0%, #d4d4d4 50%, #c4c4c4 100%);
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
       padding: 20px;
+      min-height: 100vh;
     }
 
     .container {
       max-width: 1000px;
-      margin: 50px auto;
+      margin: 30px auto;
       background: white;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
+      border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--gold-light);
       position: relative;
@@ -65,7 +66,7 @@
       left: 0;
       right: 0;
       height: 8px;
-      background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
+      z-index: 1;
     }
 
     .header {
@@ -78,10 +79,10 @@
     }
 
     .header h1 {
-      font-family: 'Jost', sans-serif;
+        font-family: 'Jost', sans-serif;
       font-size: 3rem;
       margin-bottom: 15px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 1px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
@@ -178,7 +179,7 @@
       padding: 15px 20px;
       border: 1px solid #ddd;
       border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Jost', sans-serif;
       font-size: 1rem;
       transition: all 0.3s;
       background-color: var(--light);
@@ -246,7 +247,6 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    
     }
 
     .btn:hover, .whatsapp-btn:hover {
@@ -255,75 +255,63 @@
     }
 
     .footer {
-            text-align: center;
-            padding: 30px;
-            background: var(--primary);
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .footer a {
-            color: var(--gold-light);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .footer a:hover {
-            color: var(--secondary);
-        }
-        
-        .price-tag {
-            background: linear-gradient(135deg, var(--secondary), var(--gold-dark));
-            color: var(--dark);
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .guarantee {
-            display: flex;
-            align-items: center;
-            background: rgba(46, 139, 87, 0.1);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border-left: 4px solid var(--success);
-        }
-        
-        .guarantee i {
-            color: var(--success);
-            font-size: 2rem;
-            margin-right: 20px;
-        }
-        
-        .guarantee-text h3 {
-            color: var(--success);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .guarantee-text p {
-            color: var(--text);
-            opacity: 0.9;
-        }
-        
-        .watermark {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            opacity: 0.05;
-            font-size: 10rem;
-            color: var(--secondary);
-            z-index: 0;
-            font-family: 'Cinzel', serif;
-            pointer-events: none;
-        }
+      text-align: center;
+      padding: 30px;
+      background: var(--primary);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer a:hover {
+      color: var(--secondary);
+    }
+    
+    .guarantee {
+      display: flex;
+      align-items: center;
+      background: rgba(46, 139, 87, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+      border-left: 4px solid var(--success);
+    }
+    
+    .guarantee i {
+      color: var(--success);
+      font-size: 2rem;
+      margin-right: 20px;
+    }
+    
+    .guarantee-text h3 {
+      color: var(--success);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .guarantee-text p {
+      color: var(--text);
+      opacity: 0.9;
+    }
+    
+    .watermark {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      opacity: 0.05;
+      font-size: 10rem;
+      color: var(--secondary);
+      z-index: 0;
+      font-family: 'Cinzel', serif;
+      pointer-events: none;
+    }
+
     .toast {
       position: fixed;
       bottom: 20px;
@@ -347,6 +335,19 @@
       transform: translateY(0);
     }
 
+    .toast.error {
+      background: var(--error);
+    }
+
+    .form-note {
+      background-color: rgba(231, 197, 84, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      border-left: 4px solid var(--secondary);
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
       .form-row {
         flex-direction: column;
@@ -354,7 +355,7 @@
       }
 
       .container {
-        margin: 7px;
+        margin: 10px;
       }
 
       .header h1 {
@@ -362,7 +363,7 @@
       }
 
       .form-container {
-        padding: 30px;
+        padding: 12px;
       }
 
       .section-header h2 {
@@ -375,7 +376,31 @@
       }
       
       body {
-        padding: 10px;
+        padding: 2px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 30px 20px;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .form-container {
+        padding: 30px;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .section-header i {
+        margin-right: 0;
+        margin-bottom: 15px;
       }
     }
   </style>
@@ -392,7 +417,7 @@
 
     <div class="form-container">
       <form id="admissionForm">
-        <!-- ✅ Personal Info -->
+        <!-- Personal Info -->
         <div class="form-section">
           <div class="section-header">
             <i class="fas fa-user-tie"></i>
@@ -402,22 +427,24 @@
             <div class="form-group">
                 <label for="firstName" class="required">First Name</label>
                 <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                <div class="error-message" id="firstNameError">Please enter your first name</div>
             </div>
             <div class="form-group">
                 <label for="lastName" class="required">Father Name</label>
                 <input type="text" id="lastName" name="lastName" required placeholder="Enter your father name">
+                <div class="error-message" id="lastNameError">Please enter your father name</div>
             </div>
-        </div>
+          </div>
           
           <div class="form-row">
             <div class="form-group">
               <label for="email" class="required">Email Address</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" required placeholder="Enter your email address">
               <div class="error-message" id="emailError">Please enter a valid email address</div>
             </div>
             <div class="form-group">
               <label for="phone" class="required">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required>
+              <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
               <div class="error-message" id="phoneError">Please enter a valid phone number</div>
             </div>
           </div>
@@ -444,7 +471,7 @@
           </div>
         </div>
 
-        <!-- ✅ Contact Info -->
+        <!-- Address Info -->
         <div class="form-section">
           <div class="section-header">
             <i class="fas fa-address-card"></i>
@@ -452,12 +479,12 @@
           </div>
           <div class="form-group">
             <label for="street" class="required">Street Address</label>
-            <input type="text" id="street" placeholder="Enter Your address" name="street" required>
+            <input type="text" id="street" placeholder="Enter your address" name="street" required>
             <div class="error-message" id="streetError">Please enter your street address</div>
           </div>
         </div>
 
-        <!-- ✅ Academic Info -->
+        <!-- Academic Info -->
         <div class="form-section">
           <div class="section-header">
             <i class="fas fa-graduation-cap"></i>
@@ -466,17 +493,27 @@
           <div class="form-row">
             <div class="form-group">
                 <label for="education" class="required">Qualification</label>
-                    <input type="text" id="education" name="institution" required placeholder="I have complete...">
+                <input type="text" id="education" name="education" required placeholder="I have completed...">
+                <div class="error-message" id="educationError">Please enter your qualification</div>
             </div>
-          
-        </div>
-        
-        <div class="form-group">
-            <label for="institution" class="required">Previous Institution</label>
-            <input type="text" id="institution" name="institution" required placeholder="Prvious Institute name...">
+            <div class="form-group">
+                <label for="institution" class="required">Previous Institution</label>
+                <input type="text" id="institution" name="institution" required placeholder="Previous institute name...">
+                <div class="error-message" id="institutionError">Please enter your previous institution</div>
+            </div>
+          </div>
         </div>
 
-        <!-- ✅ Agreement -->
+        <!-- Guarantee Section -->
+        <div class="guarantee">
+          <i class="fas fa-shield-alt"></i>
+          <div class="guarantee-text">
+            <h3>Guaranteed Learning Pathway</h3>
+            <p>Our program ensures practical knowledge, real earning opportunities, and personalized support throughout your journey.</p>
+          </div>
+        </div>
+
+        <!-- Agreement -->
         <div class="form-group" style="margin-top: 30px;">
           <div class="radio-option">
             <input type="checkbox" id="agree" name="agree" required>
@@ -485,7 +522,7 @@
           <div class="error-message" id="agreeError">You must agree to proceed</div>
         </div>
 
-        <!-- ✅ Button -->
+        <!-- Button -->
         <div class="button-container">
           <button type="button" class="whatsapp-btn" id="whatsappBtn">Submit</button>
         </div>
@@ -565,8 +602,14 @@
       }
       
       // Show toast message
-      function showToast(message) {
+      function showToast(message, isError = false) {
         toastMessage.textContent = message;
+        toast.classList.remove('error');
+        
+        if (isError) {
+          toast.classList.add('error');
+        }
+        
         toast.classList.add('show');
         
         setTimeout(() => {
@@ -577,7 +620,7 @@
       // WhatsApp submit
       document.getElementById('whatsappBtn').addEventListener('click', function() {
         if (!validateForm()) {
-          showToast('Please fill all required fields correctly!');
+          showToast('Please fill all required fields correctly!', true);
           return;
         }
         
@@ -589,6 +632,7 @@
           dob: document.getElementById('dob').value,
           gender: document.getElementById('gender').value,
           street: document.getElementById('street').value,
+          education: document.getElementById('education').value,
           institution: document.getElementById('institution').value
         };
         
@@ -602,6 +646,7 @@ Gender: ${formData.gender}%0A%0A
 *Contact Information:*%0A
 Address: ${formData.street}%0A%0A
 *Academic Background:*%0A
+Qualification: ${formData.education}%0A
 Previous Institution: ${formData.institution}%0A%0A
 *Submitted on:* ${new Date().toLocaleString()}`;
         
